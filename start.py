@@ -14,7 +14,7 @@ speed = Label(root)
 speed.pack()
 
 def speedometer():
-    speedData = OBD().query(commands.SPEED)
+    speedData = OBD().query(commands.SPEED).value.to("mph")
     speedText = str(speedData)+" mph"
     speed.config(text=speedText, bg='black', fg='#F4511E', font=("Helvetica", 72, "bold"))
     speed.place(anchor='center', relx=0.5, rely=0.5)
